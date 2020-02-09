@@ -17,5 +17,12 @@ namespace OnlineShopping.Helpers
             string shoppingHistoryUriWithToken = shoppingHistoryUri + "?" + ProjectConstants.AUTH_TOKEN_NAME + "=" + ProjectConstants.AUTH_TOKEN_VALUE;
             return shoppingHistoryUriWithToken;
         }
+
+        public static string GeTrolleyCalculatorUri()
+        {
+            string shoppingHistoryUri = ProjectConstants.BASE_URL + ProjectConstants.RESOURCE_URL_PATH + ProjectConstants.TROLLEY_CALCULATOR_URL_PATH;
+            string shoppingHistoryUriWithToken = shoppingHistoryUri + "?" + ProjectConstants.AUTH_TOKEN_NAME + "=" + ProjectConstants.AUTH_TOKEN_VALUE;
+            return shoppingHistoryUriWithToken;
+        }
     }
 }

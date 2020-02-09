@@ -36,6 +36,7 @@ namespace OnlineShopping
             builder.RegisterType<ProductManager>().As<IProductManager>();
             builder.RegisterType<ProductService>().As<IProductService>();
             builder.RegisterType<CustomerManager>().As<ICustomerManager>();
+            builder.RegisterType<TrolleyService>().As<ITrolleyService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

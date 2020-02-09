@@ -14,25 +14,43 @@ namespace OnlineShopping.Controllers
     {
         private readonly IUserService _userService;
         private readonly IProductService _productService;
+        private readonly ITrolleyService _trolleyService;
         private ILogger _logger;
 
-        public AnswersController(IUserService userService, IProductService productService, ILogger<AnswersController> logger)
+        public AnswersController(IUserService userService, IProductService productService, 
+            ITrolleyService trolleyService, ILogger<AnswersController> logger)
         {
             _userService = userService;
             _productService = productService;
+            _trolleyService = trolleyService;
             _logger = logger;
         }
 
-        [HttpGet]
+        /// <summary>
+        /// Returns User Information.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("user")]
         public async Task<User> GetUser()
         {
-            _logger.LogInformation("User was fetched.");
-            var user = await _userService.GetAsync();
-            return user;
+            try
+            {
+                _logger.LogInformation("User was fetched.");
+                var user = await _userService.GetAsync();
+                return user;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong: {ex}");
+                throw;
+            }
         }
 
-        [HttpGet]
+        /// <summary>
+        /// Returns a List of Products in sorted form as per specified request.
+        /// </summary>
+        /// <param name="sortOption"></param>
+        /// <returns></returns>
         [HttpGet("products/{sort}")]
         public async Task<IList<Product>> GetProducts(string sortOption)
         {
@@ -44,6 +62,27 @@ namespace OnlineShopping.Controllers
                 return products;
             }
             catch(Exception ex)
+            {
+                _logger.LogError($"Something went wrong: {ex}");
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tItem"></param>
+        /// <returns></returns>
+        [HttpPost("trolleyTotal")]
+        public async Task<decimal> CalculateTrolleyTotal([FromBody] TrolleyItem tItem)
+        {
+            try
+            {
+                _logger.LogInformation("Trolley total was Calculated.");
+                var user = await _trolleyService.GetTrolleyTotalAsync(tItem);
+                return user;
+            }
+            catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong: {ex}");
                 throw;

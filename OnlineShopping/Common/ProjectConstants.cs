@@ -11,6 +11,7 @@ namespace OnlineShopping.Common
         public const string RESOURCE_URL_PATH = "/api/resource";
         public const string PRODUCT_URL_PATH = "/products";
         public const string SHOPPER_HISTORY_URL_PATH = "/shopperHistory";
+        public const string TROLLEY_CALCULATOR_URL_PATH = "/trolleyCalculator";
 
         public const string NAME = "Parveen Bhardwaj";
         public const string AUTH_TOKEN_NAME = "token";
