@@ -35,7 +35,7 @@ jobs:
     - name: Github Run ID
       run: echo $GITHUB_RUN_ID
     - name: TimeZone
-      run: Get-TimeZone
+      run: [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId([datetime]::UtcNow, 'AUS Eastern Standard Time').ToString('yyMM.ddHH.mmss')
       shell: pwsh
 #     - name: Setup .NET
 #       uses: actions/setup-dotnet@v1
