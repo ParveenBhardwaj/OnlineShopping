@@ -34,9 +34,9 @@ jobs:
 #       run: echo $BUILD_VERSION
 #     - name: Github Run ID
 #       run: echo $GITHUB_RUN_ID
-    - name: TimeZone
+    - name: Generate Build Number
       run: |
-        "$version_number = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId([datetime]::UtcNow, 'Australia/Sydney').ToString('yyMM.ddHH.mmss')"
+        $version_number = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId([datetime]::UtcNow, 'Australia/Sydney').ToString('yyMM.ddHH.mmss')
         echo $version_number
         echo "BUILD_NUMBER=$version_number" >> $GITHUB_ENV
       shell: pwsh
