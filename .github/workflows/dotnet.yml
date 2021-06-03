@@ -37,7 +37,7 @@ jobs:
     - name: TimeZone
       run: |
         "$version_number = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId([datetime]::UtcNow, 'Australia/Sydney').ToString('yyMM.ddHH.mmss')"
-        echo "BUILD_NUMBER= $version >> $GITHUB_ENV
+        echo "BUILD_NUMBER=$version" >> $GITHUB_ENV
       shell: pwsh
     - name: show buid number
       run: echo ${{env.BUILD_NUMBER}}
