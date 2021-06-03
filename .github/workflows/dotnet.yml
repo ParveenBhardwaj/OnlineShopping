@@ -34,6 +34,9 @@ jobs:
       run: echo $BUILD_VERSION
     - name: Github Run ID
       run: echo $GITHUB_RUN_ID
+    - name: TimeZone
+      run: Get-TimeZone
+      shell: pwsh
 #     - name: Setup .NET
 #       uses: actions/setup-dotnet@v1
 #       with:
