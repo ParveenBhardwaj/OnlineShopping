@@ -31,6 +31,8 @@ jobs:
       shell: pwsh
     - name: Build Version
       run: echo $BUILD_VERSION
+    - name: Github Run ID
+      run: echo $GITHUB_RUN_ID
 #     - name: Setup .NET
 #       uses: actions/setup-dotnet@v1
 #       with:
