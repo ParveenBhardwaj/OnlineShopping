@@ -24,21 +24,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.generateBuildNumber.outputs.buildNumber}}
+      build_number: ${{ steps.generateBuildNumber.outputs.BuildNumber}}
     steps:
     - name: Generate Build Number
       id: generateBuildNumber
       run: |
         $version_number = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId([datetime]::UtcNow, 'Australia/Sydney').ToString('yyMM.ddHH.mmss')
         echo $version_number
-        echo "::set-output name=buildNumber::$version_number"
+        echo "::set-output name=BuildNumber::$version_number"
       shell: pwsh
   Deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
     - name: show buid number
-      run: echo ${{needs.build.outputs.output1}}
+      run: echo ${{needs.build.outputs.build_number}}
 #       shell: pwsh
 #     - name: Setup .NET
 #       uses: actions/setup-dotnet@v1
