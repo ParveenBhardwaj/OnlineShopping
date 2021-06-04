@@ -1,7 +1,7 @@
 name: Build
 
-env:
-  BUILD_NUMBER: 'Bw.API.Assist'
+# env:
+#   BUILD_NUMBER: 'Bw.API.Assist'
 
 on:
   push:
