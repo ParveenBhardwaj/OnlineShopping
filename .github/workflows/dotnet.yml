@@ -35,9 +35,9 @@ jobs:
       shell: pwsh
   Deploy:
     runs-on: ubuntu-latest
-    needs: ${{needs.build.outputs.build_number}}
+    needs: build
     env:
-      JOBENV: sdf
+      JOBENV: ${{needs.build.outputs.build_number}}
     steps:
     - name: show buid number
       run: echo ${{needs.build.outputs.build_number}}
