@@ -28,15 +28,26 @@ jobs:
     steps:
     - name: Publish
       run: echo "Publish the Artifacts"
-  DeployDev:
+  DeployDEV:
+    name: Deploy to DEV
     runs-on: ubuntu-latest
     needs: publish
     environment:
-      name: Dev
+      name: DEV
     steps:
     - name: Deploy
       run: echo "Deploy to Dev Environment"
+  DeploySTG:
+    name: Deploy to STG
+    runs-on: ubuntu-latest
+    needs: publish
+    environment:
+      name: STG
+    steps:
+    - name: Deploy
+      run: echo "Deploy to PRD Environment"
   DeployPRD:
+    name: Deploy to PRD
     runs-on: ubuntu-latest
     needs: publish
     environment:
