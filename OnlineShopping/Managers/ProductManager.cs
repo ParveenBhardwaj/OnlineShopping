@@ -14,6 +14,7 @@ namespace OnlineShopping.Managers
         /// <returns></returns>
         public virtual async Task<IList<Product>> GetAllAsync()
         {
+            // Test Comment
             var uri = UriHelper.GetProductUri();
             var products = await HttpHelper.GetAsync<IList<Product>>(uri);
             return products;
